@@ -45,5 +45,7 @@ require('./config/init/compileSchemas')(app, sharedEnv);
 // debug Level boolean from shareEnv.config.debug
 server = http.createServer(app);
 
-server.listen(8000);
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8000
+    , ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+server.listen(port, ip);
 sharedEnv.logger.log("CMPE 280 Server listening on port 8000");
