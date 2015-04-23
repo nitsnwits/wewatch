@@ -7,3 +7,11 @@
 23 Apr 01:34:49 - CMPE 280 Server listening on port 8000
 23 Apr 01:37:13 - Successfully loaded objectSchemas.
 23 Apr 01:37:13 - CMPE 280 Server listening on port 8000
+23 Apr 13:38:32 - Successfully loaded objectSchemas.
+23 Apr 13:38:32 - CMPE 280 Server listening on port 8000
+23 Apr 13:39:09 - POST /login request received userId=undefined
+DEBUG: Null object received from database, userId: 
+DEBUG: Null object received in get User controller, userId: 
+23 Apr 13:39:41 - POST /user request received.{"first_name":"Ashley","last_name":"Love","email":"ashley@gmail.com","password":"ashley","password_confirmation":"ashley"}
+23 Apr 13:39:41 - POST /user response: {"first_name":"Ashley","last_name":"Love","email":"ashley@gmail.com","password":"ashley","password_confirmation":"ashley","userId":"8012a83b-8f0c-41ae-96bb-c1bbe5706954"}
+23 Apr 13:40:02 - POST /login request received userId=undefined

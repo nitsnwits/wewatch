@@ -15,6 +15,7 @@ module.exports = function(app, env) {
 	// User routes
 	app.post(baseurl + '/users', userController.postUser);
 	app.get(baseurl + '/users/:user_id', userController.getUser);
+	app.post(baseurl + '/login', userController.postLogin);
 
 	// errors
 	app.get(baseurl + '/errors', errorController.getErrors);
