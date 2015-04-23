@@ -85,6 +85,7 @@ module.exports.postLogin = function(req, res) {
 			res.render('chatpage', {layout: 'layout'});
 			return;
 		} else {
+			res.locals.errorMessage = "Sorry " + username + ". We did not match any credentials. Do you want to try again?";
 			res.render('errorpage', {layout: 'layout'});
 			return;
 		}

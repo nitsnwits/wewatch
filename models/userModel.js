@@ -38,7 +38,7 @@ function dbGetUser(userId, callback) {
 		}
 		// check if a null object is received
 		if(validator.isNull(userObject)) {
-			logger.debug('Null object received from database, userId: ' + userId);
+			logger.log('Null object received from database, userId: ' + userId);
 			return callback(null, null);
 		}
 		// Because mongo is an orm, it's doc needs to be converted to JS object
@@ -58,7 +58,7 @@ function dbLoginUser(username, password, callback) {
 		}
 		// check if a null object is received
 		if(validator.isNull(userObject)) {
-			logger.debug('Null object received from database, userId: ' + username);
+			logger.log('Null object received from database, userId: ' + username);
 			return callback(null, null);
 		}
 		// Because mongo is an orm, it's doc needs to be converted to JS object

@@ -1,17 +1,15 @@
-23 Apr 01:26:24 - Successfully loaded objectSchemas.
-23 Apr 01:26:24 - CMPE 280 Server listening on port 8000
-23 Apr 01:26:49 - usage: 0.34079601990049746
-23 Apr 01:28:23 - Successfully loaded objectSchemas.
-23 Apr 01:28:23 - CMPE 280 Server listening on port 8000
-23 Apr 01:34:49 - Successfully loaded objectSchemas.
-23 Apr 01:34:49 - CMPE 280 Server listening on port 8000
-23 Apr 01:37:13 - Successfully loaded objectSchemas.
-23 Apr 01:37:13 - CMPE 280 Server listening on port 8000
-23 Apr 13:38:32 - Successfully loaded objectSchemas.
-23 Apr 13:38:32 - CMPE 280 Server listening on port 8000
-23 Apr 13:39:09 - POST /login request received userId=undefined
-DEBUG: Null object received from database, userId: 
-DEBUG: Null object received in get User controller, userId: 
-23 Apr 13:39:41 - POST /user request received.{"first_name":"Ashley","last_name":"Love","email":"ashley@gmail.com","password":"ashley","password_confirmation":"ashley"}
-23 Apr 13:39:41 - POST /user response: {"first_name":"Ashley","last_name":"Love","email":"ashley@gmail.com","password":"ashley","password_confirmation":"ashley","userId":"8012a83b-8f0c-41ae-96bb-c1bbe5706954"}
-23 Apr 13:40:02 - POST /login request received userId=undefined
+23 Apr 13:49:43 - Successfully loaded objectSchemas.
+23 Apr 13:49:43 - CMPE 280 Server listening on port 8000
+23 Apr 13:55:05 - POST /login request received userId=undefined
+23 Apr 13:55:17 - POST /login request received userId=undefined
+DEBUG: Null object received from database, userId: nitsnwits@gmail.com
+DEBUG: Null object received in get User controller, userId: nitsnwits@gmail.com
+23 Apr 13:57:08 - Successfully loaded objectSchemas.
+23 Apr 13:57:08 - CMPE 280 Server listening on port 8000
+23 Apr 13:57:49 - POST /login request received userId=undefined
+DEBUG: Null object received from database, userId: nitsnwits@gmail.com
+DEBUG: Null object received in get User controller, userId: nitsnwits@gmail.com
+23 Apr 14:10:14 - POST /login request received userId=undefined
+23 Apr 14:12:47 - POST /login request received userId=undefined
+23 Apr 14:13:56 - POST /login request received userId=undefined
+23 Apr 14:15:17 - POST /login request received userId=undefined
