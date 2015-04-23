@@ -36,7 +36,7 @@ module.exports.postUser = function(req, res) {
 	//req.body.password = crypto.createHash(algo).update(req.body.password).digest('hex');
 	userModel.dbCreateUser(req.body, function(error, newUser) {
 		if (error) {
-			logger.error('Error from database in POST user. ' + error);
+			logger.log('Error from database in POST user. ' + error);
 			return res.render('errorpage', {layout: 'layout'});
 		}
 		if (validator.isNull(newUser)) {
@@ -73,7 +73,7 @@ module.exports.postLogin = function(req, res) {
 	var password = req.body.password;
 	userModel.dbLoginUser(username, password, function(error, user) {
 		if (error) {
-			logger.error('Error from database: ' + error);
+			logger.log('Error from database: ' + error);
 			return res.render('errorpage', {layout: 'layout'});
 		}
 		if (validator.isNull(user)) {
