@@ -8,7 +8,7 @@ var _ = require('underscore')
 
 
 module.exports.getErrors = function(req, res, next) {
-  res.render('errors', {layout: 'layout'});
+  res.render('errors');
 }
 
 module.exports.getErrorsJson = function(req, res, next) {
@@ -23,7 +23,7 @@ module.exports.getErrorsJson = function(req, res, next) {
 }
 
 module.exports.getCpu = function(req, res, next) {
-  res.render('cpu', {layout: 'layout'});
+  res.render('cpu');
 }
 
 module.exports.getCpuJson = function(req, res, next) {
