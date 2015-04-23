@@ -2,7 +2,8 @@
     "server": {
       "debug": true,
       "appName": "WeWatch",
-      "validateSchemas": true
+      "validateSchemas": false,
+      "logfile": "/Users/neerajsharma/Downloads/CMPE 280/MyAssignments/project/wewatch.log"
     },
     "mongo": {
       "url": "mongodb://localhost/wewatch"

@@ -6,6 +6,7 @@
 var uuid = require('node-uuid')
 	, moment = require('moment')
 	, path = require('path')
+	, os = require('os')
 ;
 
 module.exports = function(app, env) {
@@ -18,5 +19,7 @@ module.exports = function(app, env) {
 	env.getUnixTimestamp = function() {
 		return Number(moment().format("X"));
 	}
+
+	env.hostname = os.hostname().replace(/-/g, ':');
 
  }

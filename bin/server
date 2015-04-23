@@ -4,24 +4,24 @@
 
 var pwd = process.cwd()
 	, serverBasename
-	, appName = "freedoor"
+	, appName = "wewatch"
 	, forever = require('forever')
 	, fs = require('fs')
 ;
 
 function startServer(args) {
 	console.log('Starting ' + appName + ' server');
-	if (fs.existsSync(pwd + "/" + appName + ".log"))
-		fs.unlink(pwd + "/" + appName + ".log");
+	// if (fs.existsSync(pwd + "/" + appName + ".log"))
+	// 	fs.unlink(pwd + "/" + appName + ".log");
 	if (fs.existsSync(pwd + "/" + appName + ".out"))
 		fs.unlink(pwd + "/" + appName + ".out");
 	if (fs.existsSync(pwd + "/" + appName + ".err"))
 		fs.unlink(pwd + "/" + appName + ".err");
 	forever.startDaemon(pwd + "/" + serverBasename, {
 		cwd: pwd,
-		logFile: pwd + "/" + appName + ".log", // Path to log output from forever process (when daemonized)
-		outFile: pwd + "/" + appName + ".out", // Path to log output from child stdout
-		errFile: pwd + "/" + appName + ".err", // Path to log output from child stderr
+		logFile: pwd + "/" + appName + ".log" // Path to log output from forever process (when daemonized)
+		// outFile: pwd + "/" + appName + ".out", // Path to log output from child stdout
+		// errFile: pwd + "/" + appName + ".err", // Path to log output from child stderr
 	});
 }
 

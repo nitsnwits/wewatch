@@ -1,0 +1,88 @@
+<div class="heading"><p>Server Runtime Statistics</p></div>
+
+<table style="width:100%">
+  <tr>
+    <td><div id="chart_div1"></div></td>
+    <td><div id="chart_div2"></div></td> 
+    <td><div id="chart_div3"></div></td>
+  </tr>
+</table>
+<!-- <div id="chart_div">
+</div> -->
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["gauge"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart(stats) {
+
+        if (!stats) {
+          var data = google.visualization.arrayToDataTable([
+            ['Label', 'Value'],
+            ['Memory', 80],
+            ['Cpu Free', 55],
+            ['Cpu Usage', 68]
+          ]);
+        }
+
+        if (stats) {
+          var dataMemory = google.visualization.arrayToDataTable([
+            ['Label', 'Value'],
+            ['Free Memory', Math.round(stats.freeMem * 100)]
+          ]);
+          var dataCpuUsage = google.visualization.arrayToDataTable([
+            ['Label', 'Value'],
+            ['Cpu Usage', Math.round(stats.cpuUsage * 100)]
+          ]);
+          var dataCpuFree = google.visualization.arrayToDataTable([
+            ['Label', 'Value'],
+            ['Cpu Free', Math.round(stats.cpuFree * 100)] 
+          ]);
+        }
+
+        var optionsMemory = {
+          width: 800, height: 400,
+          redFrom: 0, redTo: 10,
+          yellowFrom:10, yellowTo: 30,
+          minorTicks: 5
+        };
+
+        var optionsCpuUsage = {
+          width: 800, height: 400,
+          redFrom: 90, redTo: 100,
+          yellowFrom: 70, yellowTo: 90,
+          minorTicks: 5
+        };
+
+        var optionsCpuFree = {
+          width: 800, height: 400,
+          redFrom: 0, redTo: 10,
+          yellowFrom: 10, yellowTo: 30,
+          minorTicks: 5
+        };
+
+        var chart1 = new google.visualization.Gauge(document.getElementById('chart_div1'));
+        var chart2 = new google.visualization.Gauge(document.getElementById('chart_div2'));
+        var chart3 = new google.visualization.Gauge(document.getElementById('chart_div3'));
+
+        chart1.draw(dataMemory, optionsMemory);
+        chart2.draw(dataCpuUsage, optionsCpuUsage);
+        chart3.draw(dataCpuFree, optionsCpuFree);
+      }
+  
+  setInterval(function() {
+    $.ajax({
+      url: '/cpu.json',
+      method: 'GET',
+      cache: false,
+      dataType: 'json',
+      success: function(data) {
+        drawChart(data);
+      },
+      error: function() {
+        $('#result').html('<div class="alert alert-danger" role="alert">Could not load statistics.</div>');
+      }
+    });
+  }, 3000);     
+</script>

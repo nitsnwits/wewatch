@@ -1,0 +1,58 @@
+<div class="heading"><p>Server Logs</p></div>
+
+<div id="result">
+</div>
+
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+
+function parseError(err) {
+  var errArray = err.split('-');
+  if (errArray.length > 3) {
+    console.log('err: ' + errArray);
+    errArray = [];
+    errArray[0] = "";
+    errArray[1] = "";
+    errArray[2] = "";
+  };
+  return {
+    err: err,
+    list: errArray
+  };
+}
+
+$(function() {
+  $('#result').html('<div class="alert alert-info" role="alert">Loading</div>');
+  
+  $.ajax({
+    url: '/errors.json',
+    method: 'GET',
+    cache: false,
+    dataType: 'json',
+    success: function(data) {
+      if (data.length < 1)
+        return $('#result').html('<div class="alert alert-info" role="alert">No errors found</div>');
+        
+      $('#result').html('<table class="table table-striped"><thead><tr><th>Time</th><th>Server</th><th>Description</tr></thead><tbody></tbody></table>');
+      
+      $.each(data, function(index, err) {
+        var $tr = $('<tr><td class="time"></td><td class="env"></td><td class="desc"></td></tr>');
+        var $cells = $tr.find('td');
+
+        $('#result tbody').append($tr);
+
+        var err = parseError(err);
+        
+        $($cells[0]).text(err.list[0]);
+        $($cells[1]).text(err.list[2]);
+        $($cells[2]).text(err.list[1]);
+        $($cells[2]).popover({trigger: 'hover', title: 'Full Logs', 'content': err.err, 'container': 'body', placement: 'auto bottom'});
+      });
+      
+    },
+    error: function() {
+      $('#result').html('<div class="alert alert-danger" role="alert">Could not load errors</div>');
+    }
+  });
+});
+</script>

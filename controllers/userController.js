@@ -17,6 +17,7 @@ var algo = 'md5';
 var userModel = require("../models/userModel");
 
 module.exports.getRoot = function(req, res) {
+	logger.log('GET Request for URL: / received.');
 	res.render('../views/Landing.html');
 }
 
@@ -27,6 +28,7 @@ module.exports.postUser = function(req, res) {
 		return res.send(400, env.errorMessages.code400);
 	}
 	
+	logger.log("POST /user request received.");
 	//encrypt information
 	// req.body.userName.firstName = crypto.createHash(algo).update(req.body.userName.firstName).digest('hex');
 	// req.body.userName.lastName = crypto.createHash(algo).update(req.body.userName.lastName).digest('hex');
@@ -47,6 +49,7 @@ module.exports.postUser = function(req, res) {
 }
 
 module.exports.getUser = function(req, res) {
+	logger.log("GET /user request received userId=" + req.params.user_id);
 	var userId = req.params.user_id;
 	userModel.dbGetUser(userId, function(error, user) {
 		if (error) {
