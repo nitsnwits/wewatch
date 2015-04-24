@@ -14,3 +14,6 @@
 23 Apr 15:02:32 - Successfully loaded objectSchemas.
 23 Apr 15:02:32 - CMPE 280 Server listening on port 8000
 23 Apr 15:02:59 - POST /login request received userId=undefined
+23 Apr 17:13:35 - Successfully loaded objectSchemas.
+23 Apr 17:13:35 - CMPE 280 Server listening on port 8000
+23 Apr 17:15:25 - POST /login request received userId=undefined

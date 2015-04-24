@@ -67,13 +67,6 @@
 			margin-top: 60px
 		}*/
     </style>
-
-        <script language="javascript" type="text/javascript">
-          function resizeIframe(obj) {
-            obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-          }
-        </script>
-
 </head>
 <body>
 
@@ -115,11 +108,11 @@
       
       <div class="jumbotron">
       <h3 align="center">Chat Room</h3>
-        <div  name = "chat" align="center">
-        <iframe style="height:500px; width:100%;" id="chatwindow"  frameBorder="0" align="center" src="" ></iframe> 
+        <div name = "chat" align="center">
+        <iframe id="chatwindow" width="500" height="700" frameBorder="0" align="center" src=""></iframe> 
         </div>
         <div name = "videoButton" align="center">
-        <input id="buttonID" type="button" class="btn btn-info btn-lg" onclick="myFunction()" value="Click here to start video"></button>
+        <button type="button" class="btn btn-info btn-lg" onclick="myFunction()">Click here to start Video</button>
         </div>
       </div>
 
@@ -191,9 +184,8 @@
     <script type="text/javascript">
 
         function myFunction() {
-            document.getElementById("buttonID").value="Click here to stop video";
+
             document.getElementById('chatwindow').src = "http://webrtcsignaling.elasticbeanstalk.com/";
-            
            
         }
 
