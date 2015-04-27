@@ -11,7 +11,7 @@ var app = require('express')()
 	, logger = require('util')
 	, express = require('express')
 	, ejs = require('ejs')
-	, bodyParser = require('body-parser');
+	, bodyParser = require('body-parser')
 ;
 
 // Set loggig to env
@@ -40,8 +40,15 @@ require('./config/init/compileSchemas')(app, sharedEnv);
 // logger has, logger.log, logger.debug, logger.error
 // debug Level boolean from shareEnv.config.debug
 server = http.createServer(app);
+var io = require('socket.io').listen(server);
+sharedEnv.io = io;
 
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8000
+io.on('connection', function(socket) {
+	console.log('emitted');
+	socket.emit('request', 'blah');
+});
+
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000
     , ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 server.listen(port, ip);
-sharedEnv.logger.log("CMPE 280 Server listening on port 8000");
+sharedEnv.logger.log("CMPE 280 Server listening on port 3000");

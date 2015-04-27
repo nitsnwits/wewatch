@@ -48,6 +48,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <!--=========== Localize script starts  ================-->
     <script src="https://cdn.localizejs.com/localize.js"></script>
     <script>!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","untranslatePage","bootstrap","prefetch","on","off"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
@@ -173,6 +175,18 @@ function parseError(err) {
     list: errArray
   };
 }
+
+var socket = io();
+socket.on('request', function(req){
+  console.log('request event received.');
+  var $tr = $('<tr><td class="time"></td><td class="env"></td><td class="desc"></td></tr>');
+  var $cells = $tr.find('td');
+  $('#result tbody').prepend($tr);
+  $($cells[0]).text('Time');
+  $($cells[1]).text('Host');
+  $($cells[2]).text(req);
+});
+
 
 $(function() {
   $('#result').html('<div class="alert alert-info" role="alert">Loading</div>');

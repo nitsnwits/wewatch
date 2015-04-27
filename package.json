@@ -18,7 +18,8 @@
 		"body-parser": "~1.0.1",
 		"hogan-express": "*",
 		"byline": "*",
-		"os-utils": "*"
+		"os-utils": "*",
+		"socket.io": "*"
   	},
 	"scripts": {
 		"start": "node ./server.js"

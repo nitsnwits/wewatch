@@ -18,7 +18,10 @@ var userModel = require("../models/userModel");
 
 module.exports.getRoot = function(req, res) {
 	logger.log('GET Request for URL: / received.');
-	res.render('../views/index.html');
+	env.io.emit('request', 'Received request: ' + req.baseUrl + req.path);
+	res.send('abcd');
+
+	//res.render('../views/index.html');
 }
 
 module.exports.postUser = function(req, res) {
@@ -40,7 +43,7 @@ module.exports.postUser = function(req, res) {
 			return res.render('errorpage', {layout: 'layout'});
 		}
 		if (validator.isNull(newUser)) {
-			logger.debug('Null object received from database in POST user. ');
+			logger.log('Null object received from database in POST user. ');
 			return res.render('errorpage', {layout: 'layout'});
 		}
 		logger.log('POST /user response: ' + JSON.stringify(newUser));
@@ -78,7 +81,7 @@ module.exports.postLogin = function(req, res) {
 		}
 		if (validator.isNull(user)) {
 			res.locals.errorMessage = "Sorry " + username + ". We did you find you in our database. Do you want to try again?";
-			logger.debug('Null object received in get User controller, userId: ' + username);
+			logger.log('Null object received in get User controller, userId: ' + username);
 			return res.render('errorpage', {layout: 'layout'});
 		}
 		if (user.email === username && user.password === password) {
