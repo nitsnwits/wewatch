@@ -23,3 +23,12 @@ To view the error log visit `localhost:3000/errors` in your browser.
 To view the cpu statistics visit `localhost:3000/cpu` in your browser.
 
 To start a call, sign up and click on `Start Video Chat button`
+
+
+### ReadMe for Videochat server
+
+To install dependencies, run the following command in project directory:
+- `npm install`
+
+To run the server, run:
+- `node app.js`
