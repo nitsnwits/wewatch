@@ -1,4 +1,4 @@
-freedoor
+WeWatch
 ========
 
 CMPE 280 Semester project - WeWatch using Node.js
